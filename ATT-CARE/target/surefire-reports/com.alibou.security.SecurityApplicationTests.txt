@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: com.alibou.security.SecurityApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.539 s <<< FAILURE! - in com.alibou.security.SecurityApplicationTests
+contextLoads  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@115a7e51 testClass = com.alibou.security.SecurityApplicationTests, locations = [], classes = [com.alibou.security.SecurityApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6d7fc27, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4f74980d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@57576994, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@9da1, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@45a4b042, org.springframework.boot.test.context.SpringBootTestAnnotation@bbb9a93c], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.IllegalStateException: PostInitCallback queue could not be processed...
+        - PostInitCallbackEntry - Entity(com.alibou.security.user.User) `sqmMultiTableInsertStrategy` interpretation
+        - PostInitCallbackEntry - Entity(com.alibou.security.token.Token) `sqmMultiTableInsertStrategy` interpretation
+
+Caused by: jakarta.persistence.PersistenceException: 
+[PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.IllegalStateException: PostInitCallback queue could not be processed...
+        - PostInitCallbackEntry - Entity(com.alibou.security.user.User) `sqmMultiTableInsertStrategy` interpretation
+        - PostInitCallbackEntry - Entity(com.alibou.security.token.Token) `sqmMultiTableInsertStrategy` interpretation
+
+Caused by: java.lang.IllegalStateException: 
+PostInitCallback queue could not be processed...
+        - PostInitCallbackEntry - Entity(com.alibou.security.user.User) `sqmMultiTableInsertStrategy` interpretation
+        - PostInitCallbackEntry - Entity(com.alibou.security.token.Token) `sqmMultiTableInsertStrategy` interpretation
+
+
